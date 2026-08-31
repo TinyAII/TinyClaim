@@ -1,0 +1,35 @@
+name: TinyClaim
+version: 1.8.0
+main: nl.tinyaii.tinyclaim.TinyClaimPlugin
+api-version: 1.16
+author: TinyAII
+description: 领地保护插件 - 四象限索引/Flag权限/子领地/成员组/模板/经济联动
+website: https://github.com/TinyAII
+
+softdepend: [Economy, Vault]
+
+commands:
+  领地:
+    aliases: [claim, land]
+    description: 领地系统主命令
+    usage: /领地 <子命令>
+
+permissions:
+  claim.use:
+    description: 使用领地功能
+    default: true
+  claim.admin:
+    description: 领地管理（删除他人领地/无视保护）
+    default: op
+  claim.bypass:
+    description: 无视所有领地保护
+    default: op
+  claim.limit.default:
+    description: 默认领地数
+    default: true
+  claim.limit.vip:
+    description: VIP 领地数
+    default: op
+  claim.limit.svip:
+    description: SVIP 领地数
+    default: op
