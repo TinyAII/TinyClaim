@@ -1,0 +1,63 @@
+# TinyClaim 领地插件 配置
+settings:
+  language: zh              # 语言: zh=中文 en=英文
+  max-claims-default: 3     # 普通玩家默认领地数
+  max-size-xz: 256          # 单领地最大长/宽（方块）
+  max-size-y: 256           # 单领地最大高
+  min-size: 1               # 单领地最小边长（方块）
+  overlap-forbidden: true   # 禁止领地重叠（true=不允许，false=允许重叠覆盖低优先级）
+  selection-preview-radius: 64   # 锄头选点时显示周围领地边界的半径（方块）
+  boundary-style: faces      # 领地边界显示样式: faces=六面全包围（直观，粒子多）| edges=12条边线（低负担，粒子少）
+  display-duration-seconds: 10   # 选区预览粒子显示时长（秒），到期自动消失
+  enter-leave-duration-seconds: 2.3  # 进入/退出领地时边界粒子显示时长（秒），到期自动消失
+  default-welcome: "欢迎来到"  # 进入领地默认欢迎语（领地可用 /领地 欢迎语 <消息> 自定义）
+  default-leave: "欢迎下次光临"  # 退出领地默认欢送语（领地可用 /领地 退出语 <消息> 自定义）
+  economy:
+    enabled: false          # 经济联动开关（需装自家 Economy 或 Vault）
+    claim-cost: 0.0         # 创建领地费用（0=免费）
+    expand-cost-per-block: 0.0  # 扩展每方块费用（0=免费）
+
+flags:
+  default-environment:
+    creeper-explosion: false   # 苦力怕爆炸破坏
+    tnt-explosion: false       # TNT 爆炸破坏
+    fire-spread: false         # 火焰蔓延
+    lava-flow: false           # 岩浆流动
+    water-flow: false          # 水流
+    piston-push: false         # 活塞推出
+    mob-grief: false           # 怪物破坏（末影人/凋灵等）
+    mob-trample: false         # 怪物踩踏耕地
+    animal-trample: false      # 动物踩踏耕地
+    item-drop: true            # 掉落物产生
+    mob-spawn: true            # 怪物自然生成
+    animal-spawn: true         # 动物自然生成
+  default-privilege:
+    build: false               # 建造/破坏（默认关：外人不能建）
+    interact: false            # 使用（箱子/门/按钮等）
+    container: false           # 打开容器
+    pvp: false                 # 玩家间战斗
+    attack-monster: false      # 攻击怪物
+    attack-animal: false       # 攻击动物
+    use-elytra: true           # 鞘翅飞行
+    use-redstone: false        # 红石设备
+    enter: true                # 进入
+    chest-access: false        # 箱子权限（容器权限子集）
+
+# flag 模板：/领地 模板 应用 <名> 应用到当前领地
+templates:
+  家园:
+    creeper-explosion: false
+    tnt-explosion: false
+    mob-grief: false
+    build: true
+    interact: true
+    container: true
+    pvp: false
+  战争:
+    pvp: true
+    attack-monster: true
+    build: true
+  和平:
+    pvp: false
+    attack-monster: false
+    attack-animal: false
